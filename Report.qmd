@@ -14,6 +14,7 @@ https://data.census.gov/table/DECENNIALCROSSTABGU2020.CT1?q=Guam+Populations+and
 ## Method and Code
 
 ### Data Cleaning
+
 I processed the raw census data and created a tidy dataset.
 
 Structure & Organization: I used regular expressions to standardize column headers (removing prefixes like "Guam!!") and used row indentation levels to reconstruct hierarchical categories (e.g., Age and Sex) using the fill function.
@@ -106,6 +107,7 @@ process_census_data <- function(file_path) {
 ```
 
 ### Application Construction
+
 The application was built using the shiny app, featuring a sidebar for global controls and a main interface divided into two panels, overview and age distribution.
 
 Global Controls: The sidebar allows users to filter the entire dataset by specific racial groups. It also includes context inputs (such as category selection or percentage toggles) that update based on the active tab.
@@ -288,31 +290,33 @@ shinyApp(ui = ui, server = server)
 ```
 
 ## Results and Analysis
+
 Here are some selected output from the Shiny app.
 
 ### Demographic Overview
-![Figure 1](shiny1.png)
-Figure 1: Total Population by Racial Group
+
+![Figure 1](images/shiny1.png) Figure 1: Total Population by Racial Group
 
 The "Overview" tab allows for a direct comparison of population counts across different racial demographics. Figure 1 displays the total population for five key groups. The chart highlights that Native Hawaiian & Pacific Islanders are the largest racial group in Guam (exceeding 60,000 individuals in this dataset), followed closely by the Asian population (approximately 55,000). In contrast, the White, Hispanic, and Other Race populations are significantly smaller, with the White population appearing as the third largest group at just over 10,000. This visualization shows the app's ability to quickly identify the island's primary demographic composition, showing a population heavily skewed towards Pacific Islander and Asian communities.
 
 ### Detailed view of Pacific Islander
-![Figure 2](shiny2.png)
-Figure 2: Breakdown of Native Hawaiian & Pacific Islander Population
+
+![Figure 2](images/shiny2.png) Figure 2: Breakdown of Native Hawaiian & Pacific Islander Population
 
 While Figure 1 identified "Native Hawaiian & Pacific Islander" as the largest aggregate racial group, the app allows for a breakdown into specific ethnic origins. Figure 2 displays the population distribution within this category. The Chamorro population is the largest subgroup, accounting for approximately 50,000 individuals. This aligns with Guam's history as the indigenous homeland of the Chamorro people. The Chuukese represents the second-largest specific subgroup, with a population count exceeding 10,000.
 
 ### Comparative Age Demographics
-![Figure 3](shiny3.png)
-Figure 3: Median Age by Racial Group
+
+![Figure 3](images/shiny3.png) Figure 3: Median Age by Racial Group
 
 Figure 3 transitions the analysis from raw population counts to demographic characteristics, specifically Median Age. This metric offers insight into the generational structure of each community. The Asian population exhibits the highest median age, exceeding 40 years. This suggests a more mature demographic profile compared to other groups on the island. In contrast, the Native Hawaiian & Pacific Islander and Total Hispanic populations show significantly lower median ages (approximately 30 and 28 years). This points to a younger population structure.
 
 ### Age Structure and Distribution Trends
-![Figure 4](shiny4.png)
-Figure 4: Age Distribution by Race (Percentage View)
+
+![Figure 4](images/shiny4.png) Figure 4: Age Distribution by Race (Percentage View)
 
 Figure 4 displays age distribution as a percentage of the total population for each race. This allows for a fair comparison of demographic shapes despite the large disparities in absolute population sizes. There exists a "Young Adult", that a sharp, distinctive peak is visible in the 20 to 24 years age bracket for the Other Races (green), Total Hispanic (blue), and White (purple) populations. On contrast, The Asian population (red line) follows a completely different trajectory. It remains low in the youth brackets (under 20) and rises steadily to peak in the 50 to 59 years range.
 
 ## Conclusion
+
 By cleaning and visualizing the 2020 Guam dataset, the analysis revealed distinct structural differences among racial groups, using the Shiny application in R. Shiny is good at interaction and visualization on data, showing some characteristics of population and age. The dataset also includes extra data such as sex, marital status and fertility, that also included in the app.
