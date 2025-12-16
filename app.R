@@ -8,8 +8,11 @@
 #
 
 library(shiny)
-library(tidyverse)
+library(dplyr)
+library(readr)
+library(tidyr)
 library(stringr)
+library(ggplot2)
 library(scales)
 
 # --- Data Cleaning Function ---
